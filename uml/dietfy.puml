@@ -1,0 +1,160 @@
+@startuml
+
+class "dietify_app::screens::bmr_page.dart::_BmrPage" {
+  -int _position
+  -int _genderPosition
+  -int _userGoalPosition
+  -int _motivatePosition
+  +int conditionPosition
+  +double tabHeight
+  +double tabWidth
+  +double tabRadius
+  +double targetCalorie
+  +double? margin
+  +List<DietModel> motivateList
+  +List<DietModel> getGender
+  +List<DietModel> getUserPref
+  +List<DietModel> condition
+  +int cm
+  +double kg1
+  +double kg2
+  +int age
+  +List<Widget> widgetList
+  -Future<bool> _requestPop()
+  +void initState()
+  +dynamic getPositionWidget()
+  +Widget genderWidget()
+  +Widget ageWidget()
+  +Widget heightWidget()
+  +Widget weightWidget()
+  +Widget getUserPrefs()
+  +Widget goalWeightWidget()
+  +Widget conditionConcern()
+  +Widget anonymousWidget()
+  +dynamic getTextField()
+  +dynamic getHeaderText()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "dietify_app::screens::bmr_page.dart::_BmrPage"
+
+class "dietify_app::screens::create_plan_page.dart::CreatePlanPage" {
+  +int? bmr
+  +_CreatePlanPage createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "dietify_app::screens::create_plan_page.dart::CreatePlanPage"
+
+class "dietify_app::screens::home_screen.dart::HomeScreen" {
+  +DailyPlans? dailyPlans
+  +State<HomeScreen> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "dietify_app::screens::home_screen.dart::HomeScreen"
+
+class "dietify_app::screens::home_screen.dart::_HomeScreenState" {
+  +PageController pageController
+  +int page
+  +List<MealsTime> mealsTime
+  +List<int> friId
+  +List<int> satId
+  +List<int> sunId
+  +List<int> monId
+  +List<int> tueId
+  +List<int> wenId
+  +List<int> thuId
+  +List<List<int>> mealsIngridentsID
+  +void initState()
+  +dynamic getData()
+  +dynamic animateToPageMethod()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "dietify_app::screens::home_screen.dart::_HomeScreenState"
+
+class "dietify_app::screens::home_screen.dart::DailyMealsPlan" {
+  +List<double> calories
+  +List<double> fat
+  +List<double> protein
+  +List<double> carbo
+  +List<MealsTime> mealsTime
+  +List<List<int>> mealsIngridentIDs
+  +State<DailyMealsPlan> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "dietify_app::screens::home_screen.dart::DailyMealsPlan"
+
+class "dietify_app::screens::home_screen.dart::_DailyMealsPlanState" {
+  +dynamic save()
+  +void initState()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "dietify_app::screens::home_screen.dart::_DailyMealsPlanState"
+
+class "dietify_app::screens::home_screen.dart::UserInfo" {
+  +List<double> info
+  +String? label
+  +Color? color
+  +int? index
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "dietify_app::screens::home_screen.dart::UserInfo"
+
+class "dietify_app::screens::home_screen.dart::MealsWidget" {
+  +BoxConstraints constraints
+  +String title
+  +String imgPath
+  +double subtitle
+  +void Function() onTap
+  +void Function() onPressed
+}
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "dietify_app::screens::home_screen.dart::MealsWidget"
+
+class "dietify_app::screens::login_screen.dart::_LoginItemsState" {
+  +void initState()
+  +Future<void> login()
+  +dynamic loginAsAnony()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "dietify_app::screens::login_screen.dart::_LoginItemsState"
+
+class "dietify_app::screens::login_screen.dart::OtherSignInOption" {
+  +String imgUrl
+  +void Function() onTap
+  +double radius
+}
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "dietify_app::screens::login_screen.dart::OtherSignInOption"
+
+class "dietify_app::screens::meals_ingridents.dart::DishDetailPage" {
+  +int id
+  +double protein
+  +double carbo
+  +double fat
+  +String appBarTitle
+  +_DishDetailPage createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "dietify_app::screens::meals_ingridents.dart::DishDetailPage"
+
+class "dietify_app::screens::meals_ingridents.dart::_DishDetailPage" {
+  +List<String>? name
+  +List<String>? unit
+  +List<double>? value
+  +void onBackClick()
+  +dynamic getIngredient()
+  +void initState()
+  +dynamic getList()
+  +dynamic getTitle()
+  +dynamic getCell()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "dietify_app::screens::meals_ingridents.dart::_DishDetailPage"
+
+class "dietify_app::screens::profil_page.dart::_ProfilPage" {
+  +String name
+  +dynamic user
+  +void initState()
+  -Future<bool> _requestPop()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "dietify_app::screens::profil_page.dart::_ProfilPage"
+
+@enduml
